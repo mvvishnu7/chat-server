@@ -7,10 +7,12 @@ import io.micronaut.websocket.annotation.OnMessage;
 import io.micronaut.websocket.annotation.OnOpen;
 import io.micronaut.websocket.annotation.ServerWebSocket;
 import java.util.function.Predicate;
+import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Slf4j
 @ServerWebSocket("/ws/chat/{topic}/{username}") // <1>
 public class ChatServerWebSocket {
 
@@ -53,7 +55,7 @@ public class ChatServerWebSocket {
     }
 
     private void log(String event, WebSocketSession session, String username, String topic) {
-        LOG.info("* WebSocket: {} received for session {} from '{}' regarding '{}'",
+        log.info("* WebSocket: {} received for session {} from '{}' regarding '{}'",
                 event, session.getId(), username, topic);
     }
 

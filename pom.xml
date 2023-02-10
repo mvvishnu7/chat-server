@@ -71,10 +71,20 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.26</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Logging Dependencies -->
+    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <scope>runtime</scope>
+      <version>1.4.5</version>
     </dependency>
+
+    <!-- Test Dependencies -->
     <dependency>
       <groupId>io.micronaut.test</groupId>
       <artifactId>micronaut-test-junit5</artifactId>
@@ -113,6 +123,12 @@
           <!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
 
           <annotationProcessorPaths combine.children="append">
+            <path>
+              <!-- must precede micronaut-inject-java -->
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>1.18.26</version>
+            </path>
             <path>
               <groupId>io.micronaut</groupId>
               <artifactId>micronaut-http-validation</artifactId>
