@@ -19,7 +19,3 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
-  Host *.HOSTNAME
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519
